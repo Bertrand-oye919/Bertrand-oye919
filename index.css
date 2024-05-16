@@ -1,0 +1,772 @@
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Inter Regular'), local('Inter-Regular'),
+         url('/path/to/inter.woff2') format('woff2'), /* Modern Browsers */
+         url('/path/to/inter.woff') format('woff'); /* Older Browsers */
+  }
+  
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Inter Bold'), local('Inter-Bold'),
+         url('/path/to/inter-bold.woff2') format('woff2'), /* Modern Browsers */
+         url('/path/to/inter-bold.woff') format('woff'); /* Older Browsers */
+  }
+  :root{
+    transition: all 0.4 ease-in;
+  }
+  ::-webkit-scrollbar
+  body {
+      font-family: 'Inter', sans-serif;
+      box-sizing: border-box;
+  }
+  html{
+    scroll-snap-type: y mandatory;
+  }
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    height: 100vh;
+    width: 100vw;
+    scroll-snap-align: start;
+   
+}
+.wrapper{
+    display: inline-flex;
+}
+.wrapper .static-txt{
+    color: #000000;
+    font-size: 60px;
+    font-weight: 400;
+}
+.wrapper .dynamic-txts{
+    margin-left: 15px;
+    height: 90px;
+    line-height: 90px;
+    overflow: hidden;
+}
+.dynamic-txts li{
+    list-style: none;
+    font-size: 60px;
+    font-weight: 500;
+    color: #000000;
+    position: relative;
+    top: 0;
+    animation: slide 6s steps(4) infinite, colorChange 5s infinite alternate;
+}
+@keyframes slide{
+    100%{
+        top:-360px
+    }
+}
+@keyframes colorChange {
+    0%, 100% {
+        color: black;
+    }
+    25% {
+        color: rgb(236, 0, 0);
+    }
+    50% {
+        color: rgb(244, 240, 0);
+    }
+    75% {
+        color: rgb(125, 125, 125);
+    }
+}
+.dynamic-txts li span{
+    position:relative;
+}
+.dynamic-txts li span::after{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    border-left: 2px solid #ffffff;
+    animation: typing 1.5s steps(10) infinite;
+    background: #ffffff;
+}
+@keyframes typing{
+    100%{
+        left:100%;
+        margin: 0 -35px 0 35px
+    }
+}
+.bg-nav {
+    border-top: 2px solid white;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(images/pexels-pixabay-159832.jpg);
+    background-position: fixed;
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+}
+
+.line {
+    width: 100%;
+    height: 0.5px;
+    margin: 30px 0 5px 0;
+    background-color: white; 
+    position:absolute;
+    z-index: 1;
+    
+}
+
+.social-media {
+    margin: 10px;
+    color: white;
+    display: flex;
+    justify-content: flex-end; /* Updated to end */
+    align-items: center;
+   
+}
+
+.email, .whatsapp, .call {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    margin: 0 10px 0 10px;
+    font-size: 15px;
+}
+
+.social-media img {
+    width: 15px;
+    height: 20px;
+}
+
+.logo-com {
+    margin: 5px;
+    margin-left: -700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.logo-com h1 {
+    font-size: 30px;
+}
+.nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: static;
+    
+}
+nav {
+   
+    text-align: center;
+    
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    padding: 10px 15px;
+    border-radius: 20px;
+    background-color: #D9D9D9;
+    list-style: none;
+    margin: -30px 0 10px 0;
+    top: 0; /* Stick to the top */
+    z-index: 1000; 
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 10px; /* Increased padding */
+}
+
+nav ul li a:hover {
+    background-color: white;
+    border: 1px solid rgb(129, 129, 129);
+}
+
+.reg{
+    color: white;
+    font-size: 1.5rem;
+    text-align: end;
+    margin: -30px 50px 0 0px;
+    animation: shakeAndChangeColor 5s infinite, changeColor 5s infinite;
+}.reg a{
+    text-decoration: none;
+    animation: changeColor 10s infinite; 
+}
+@keyframes changeColor {
+    0% { color: red; }
+    25% { color: rgb(255, 255, 255); }
+    50% { color: green; }
+    75% { color: rgb(0, 255, 200); }
+    100% { color: orange; }
+}
+
+.change-color {
+    animation: changeColor 5s infinite; /* Change color every 5 seconds infinitely */
+}
+@keyframes shakeAndChangeColor {
+    0% { transform: translateX(0); }
+    10%, 90% { transform: translateX(-5px); }
+    20%, 80% { transform: translateX(5px); }
+    30%, 50%, 70% { transform: translateX(-5px); }
+    40%, 60% { transform: translateX(5px); }
+    100% { color: rgb(255, 255, 255); } /* Ensure final color stays consistent */
+}
+.lines{
+    width: 100%;
+    height: 0.5px;
+    margin: 10px 0 4px 0;
+    background-color: white;
+}
+.intro{
+    text-align: center;
+    margin: 3%;
+}
+.intro h1{
+    font-size: 70px;
+    display: inline-block;
+    font-weight: bold;
+    color: black;
+    margin: 3%;
+}
+
+.head h1 span{
+    animation: textChange 5s infinite alternate, colorChange 5s infinite alternate;
+}
+
+
+@keyframes colorChange {
+    0%, 100% {
+        color: black;
+    }
+    25% {
+        color: rgb(230, 14, 14);
+    }
+    50% {
+        color: rgb(0, 149, 255);
+    }
+    75% {
+        color: rgb(125, 125, 125);
+    }
+}
+.intro p{
+    min-width: 1.4rem;
+}
+.links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.link1 a {
+    list-style-type: none;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 10px;
+    border-radius: 12px;
+    margin-right: 10px;
+}
+.link2 a {
+    list-style-type: none;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 10px;
+    border-radius: 12px;
+    transition: background-color 0.5s, color 0.5s; /* Smooth transition for background and text color changes */
+}
+.link1 a:hover{
+    color: black; 
+    background-color: white; 
+    animation: colorAnimation 1s forwards; /* Apply the color animation on hover */
+}
+
+@keyframes colorAnimation {
+    0% {
+        background-color: white;
+        color: black;
+    }
+    100% {
+        background-color: black;
+        color: white;
+    }
+}
+.link2 a:hover{
+    color: black; 
+    background-color: white; 
+    animation: colorAnimation 1s forwards; 
+}
+
+@keyframes colorAnimation {
+    0% {
+        background-color: white;
+        color: black;
+    }
+    100% {
+        background-color: black;
+        color: white;
+    }
+}
+.image{
+    display: flex;
+    justify-content: flex-end;
+  
+}
+.image img{
+    height: 200px;
+    width: 250px;
+    position: fixed;
+    margin: -150px 25px 0 0;
+    z-index: 9999; 
+    animation: spin 2s linear infinite; /* Apply the spin animation */
+}
+
+.wavy-background {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  .content {
+    position: relative;
+    z-index: 1;
+    /* Add your custom styles for the content */
+  }
+  
+.about{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    scroll-snap-align: start;
+}  
+.about h2 , .about p{
+    margin:0 0 0 -470px  ;
+}
+.about h2{
+    font-size: 3rem;
+    font-weight: bolder;
+}
+.about p{
+    max-width: 300px ;
+    height: auto;
+    overflow: auto;
+}
+.side{
+   width: 150px;
+   height: 80vh;
+    background-color: #000000;
+    border-radius: 12px;
+    margin: 0 0 0 10px;
+}
+.img img {
+    margin-top:-10px ;
+    margin-left: -500px;
+    border-radius: 30%;
+    max-height: 400px;
+    max-width: 300px;
+    position: absolute;
+    filter: drop-shadow(1px 1px 7px rgb(250, 255, 210));
+}
+.img-bg{
+    z-index: -500px;
+    height: 300px;
+    width: 300px;
+    background-color: rgb(255, 226, 34);
+    margin-top: 100px;
+    margin-left: -500px;
+    margin-right: 20px;
+    border-radius: 50%;
+    animation: colorAndShape 5s infinite alternate;
+}
+@keyframes colorAndShape {
+    0% {
+        background-color: rgb(255, 216, 216);
+        border-radius: 50%;
+    }
+    50% {
+        background-color: rgb(213, 213, 213);
+        border-radius: 0;
+    }
+    100% {
+        background-color: rgb(227, 255, 227);
+        border-radius: 25%;
+    }
+}
+.prac-area{
+    height: 100vh;
+    width: 100vw;
+    scroll-snap-align:end;
+    background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.6)),url(./images/pexels-sora-shimazaki-5668473.jpg);
+    background-position: cover;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding:2px;
+    color: white;
+    text-align: left;
+}
+.prac-area h1{
+    text-align: center;
+    margin: 20px 0 -50px 0;
+    font-size: 50px;
+}
+.prac-area img{
+    max-height: 80px;
+    max-width: 50px;
+    margin-right: 5px;
+    filter: drop-shadow(2px 1px 2px rgb(163, 163, 163));
+    cursor: pointer;
+}
+.prac{
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    margin: 100px 10px 0 40px;
+}
+.prac-area2{
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    margin: 10px 10px 0 60px;
+}
+.family img{
+    max-width: 70px;
+    max-height: 120px;
+}
+.real-estate img{
+    max-width: 70px;
+    max-height: 120px; 
+}
+.coop, .litig, .family, .intel, .employ, .real-estate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    
+}
+
+.fam,.co,.lit,.co,.empl,.real{
+    border-left: 2px solid black;
+    margin: 0 10px 0 5px;
+    padding: 0 0 0 15px;
+}
+.view{
+    text-align: center;
+   margin: 50px;
+}
+.view :hover{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 2px solid black;
+    animation: colorAnimation 5s forwards; 
+}
+.view a{
+    text-decoration: none;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 30px 10px 30px;
+}
+@keyframes colorAnimation {
+    0% {
+        background-color: white;
+        color: black;
+    }
+    100% {
+        background-color: rgb(45, 45, 45);
+        color: white;
+    }
+}
+.attorney{
+    height: 100vh;
+    width: 100vw;
+    scroll-snap-align:end;
+    background-color: black;
+    
+}
+.attorney h3{
+    text-align: center;
+    color: white;
+}
+.attorney h1{
+    margin: 10px;
+    text-align: center;
+    color: white;
+}
+.attorney p{
+    text-align: center;
+    color: white;
+    font-size: 12px;
+}
+
+.team1 h4, .team1 p,.team2 h4, .team2 p,.team3 h4, .team3 p,.team4 h4, .team4 p{
+    color: white;
+    text-align: center;
+}
+.team1,.team2,.team3,.team4{
+    margin: 10px 10px 0 10px;
+    text-align: center;
+}
+.box {
+    background-color: #1e0c0c;
+    height: 125px;
+    width: 200px;
+    z-index: 2; /* Increase z-index to bring it in front */
+    margin-top: -25px;
+    margin-left: 10px;
+    position: relative; /* Add position relative */
+}
+
+.attorney img {
+    text-align: center;
+    height: 250px;
+    width: 220px;
+    z-index: 1; /* Decrease z-index to move it behind */
+    position: relative; /* Add position relative */
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.wrap{
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    margin: 20px 0 0 150px;
+
+}
+.rating {
+    text-align: center;
+    display: inline-block;
+   /*/ user-select: none;*/
+  }
+  
+  .rating input {
+    display: none;
+  }
+  
+  .rating label {
+    float: right;
+    margin: 0 2px;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  
+  .rating label:before {
+    content: '\2605';
+    color: #ddd;
+  }
+  
+  .rating input:checked ~ label:before {
+    color: #ff9800;
+  }
+
+  .how-it-works{
+    
+    scroll-snap-align:end;
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),url(images/pexels-sora-shimazaki-5668772.jpg);
+    background-position: fixed;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  .how-it-works img{
+    height: 40px;
+    width: 50px;
+    margin: 20px;
+  }
+  .how-it-works .box1 img{
+    height: 50px;
+    width: 50px;
+  }
+  .how-it-works .box2 img{
+    height: 50px;
+    width: 50px;
+  }
+  .how-it-works h3{
+    text-align: center;
+    color: white;
+  }
+  .box-element{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  margin: 0 10px 0 30px;
+  }
+  .box1,.box2,.box3{
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 20px 5px ;
+    height: 300px;
+    width: 350px;
+    margin: 30px 10px 10px 20px;
+  }
+  .box1 p,.box2 p,.box3 p{
+    margin-bottom: 20px;
+  }
+  .box1 a,.box2 a,.box3 a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid black;
+    padding: 10px;
+    background-color: #000000;
+    
+  }
+  .box1 a:hover,.box2 a:hover,.box3 a:hover{
+    color: #000000;
+    background-color: white;
+    transition-duration: 3s;
+    border-radius: 12px;
+}
+  .service{
+    scroll-snap-align:end;
+    height: 100vh;
+    width: 100vw;
+    background-color: #000000;
+    color: white;
+
+  }
+
+  .service1,.service2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px 0 20px;
+  }
+  .card1 h3{
+    font-size: 2rem;
+    margin: 37px 0 10px 0 ;
+  }
+  .card1 ,.card2,.card3{
+    margin: 50px 10px 10px 10px ;
+  }
+  .card4,.card5,.card6{
+    margin: 10px 10px 10px 10px ;
+  }
+  .card1 ,.card2,.card3,.card4,.card5,.card6{
+    min-height: 216px;
+    min-width:100px;
+    padding: 20px 50px 40px 50px;
+    
+    overflow: hidden;
+  }
+  .card2,.card3,.card4,.card5,.card6{
+    background-color: #1F1F1F;
+    text-align: center;
+  }
+  .card2 h3,.card3 h3,.card4 h3,.card5 h3,.card6 h3{
+    font-size: 1rem;
+    margin: 10px 0 10px 0;
+  }
+  .service img{
+    max-height: 50px ;
+    max-width: 40px;
+    filter: drop-shadow(1px 1px 20px white);
+  }
+  .card4 img{
+    max-height: 70px ;
+    max-width: 50px;
+  }
+  .card5 img{
+    max-height: 80px ;
+    max-width: 60px;
+  }
+  .what{
+    scroll-snap-align:end;
+    height: 70vh;
+    width: 100vw;
+  }
+  .what h2{
+    text-align: left;
+    font-size: 40px;
+    margin: 50px  0 20px 40px;
+  }
+
+  .what img{
+    height: 80px ;
+    width: 80px;
+   margin: 0 10px;
+    border-radius: 100%;
+    border: 3px solid white;
+  }
+  .cover{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-bottom: 30px;
+  }
+  .mark1,.mark2,.mark3{
+    min-height: 190px;
+    min-width: 187px;
+    background-color: #000000;
+    color: white;
+    margin: 0 16px 30px 16px;
+    overflow: hidden;
+    padding: 20px;
+  }
+  .profile{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 10px;
+  }
+  @media screen and (max-width: 768px) {
+    .container {
+        height: auto;
+    }
+
+    .logo-com {
+        margin-left: 0;
+    }
+
+    .nav ul li {
+        margin-left: 10px;
+    }
+
+    .wrap {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rating label {
+        font-size: 20px;
+    }
+
+    .attorney img {
+        width: 100%;
+        height: auto;
+    }
+
+    .box {
+        margin-left: 0;
+    }
+
+    .about h2, .about p {
+        margin: 0;
+    }
+}
